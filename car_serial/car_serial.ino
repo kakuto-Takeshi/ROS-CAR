@@ -85,7 +85,7 @@ void messageCb_motor(const std_msgs::Int32 &motor_msg){
   }
 }
 
-// コールバック関数
+// サブスクライバー
 ros::Subscriber<std_msgs::Int32> sub_led("led", &messageCb_led);
 ros::Subscriber<std_msgs::Int32> sub_servo("servo", &messageCb_servo);
 ros::Subscriber<std_msgs::Int32> sub_motor("motor", &messageCb_motor);
@@ -110,7 +110,7 @@ void setup() {
   nh.getHardware()->setBaud(115200);
   nh.initNode();
 
-  // コールバック関数
+  // サブスクライブ実行
   nh.subscribe(sub_led);
   nh.subscribe(sub_servo);
   nh.subscribe(sub_motor);

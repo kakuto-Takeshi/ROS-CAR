@@ -6,16 +6,20 @@ std_msgs::Int32 led_msg;
 std_msgs::Int32 servo_msg;
 std_msgs::Int32 motor_msg;
 
-void joy_callback(const sensor_msgs::Joy joy_msg){
+void joy_callback(const sensor_msgs::Joy &joy_msg)
+{
   led_msg.data = joy_msg.buttons[0];
-  servo_msg.data = -joy_msg.axes[2]*25+90;
+  servo_msg.data = -joy_msg.axes[2] * 25 + 90;
 
-  if(joy_msg.axes[1] > 0.5) motor_msg.data = 1;
-  else if(joy_msg.axes[1] < -0.5) motor_msg.data = -1;
-  else motor_msg.data = 0;
+  if (joy_msg.axes[1] > 0.5)
+    motor_msg.data = 1;
+  else if (joy_msg.axes[1] < -0.5)
+    motor_msg.data = -1;
+  else
+    motor_msg.data = 0;
 }
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
   ros::init(argc, argv, "ros_car_node");
   ros::NodeHandle nh;
