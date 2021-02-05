@@ -1,8 +1,0 @@
-<launch>
-  <node name="joy_node" pkg="joy" type="joy_node" />
-  <node name="serial_node" pkg="rosserial_python" type="serial_node.py">
-    <param name="port" value="/dev/ttyACM0" />
-    <param name="baud" value="115200" />
-  </node>
-  <node name="ros_car_node" pkg="ros_car" type="ros_car_node" />
-</launch>

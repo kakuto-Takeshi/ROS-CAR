@@ -1,0 +1,4 @@
+<launch>
+  <node name="joy_node" pkg="joy" type="joy_node" />
+  <node name="ros_car_node" pkg="ros_car" type="ros_car_node" />
+</launch>
